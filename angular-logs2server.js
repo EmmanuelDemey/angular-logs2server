@@ -106,19 +106,19 @@
 		var defaultExceptionHandler = true;
 
 		/**
-	   * @ngdoc method
-	   * @name $log2serverConfigServiceProvider#setServerURL
-	   * @param {string} url URL of the REST API receiving the logs, via a POST request.
-	   */
+		* @ngdoc method
+		* @name $log2serverConfigServiceProvider#setServerURL
+		* @param {string} url URL of the REST API receiving the logs, via a POST request.
+		*/
 		this.setServerURL = function(url){
 			serverURL = url;
 		};
 
 		/**
-	   * @ngdoc method
-	   * @name $log2serverConfigServiceProvider#setDefaultExceptionHandler
-	   * @param {boolean} flag Indicate if the default exceptionHandler behavior should be enabled.
-	   */
+		* @ngdoc method
+		* @name $log2serverConfigServiceProvider#setDefaultExceptionHandler
+		* @param {boolean} flag Indicate if the default exceptionHandler behavior should be enabled.
+		*/
 		this.setDefaultExceptionHandler = function(flag){
 			defaultExceptionHandler = flag;
 		};
