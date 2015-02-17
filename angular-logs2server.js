@@ -1,9 +1,20 @@
 (function(){
 	'use strict';
 
+	/**
+	 * @ngdoc module
+	 * @name logs2server
+	 * @module logs2server
+	 * @description
+	 *
+	 * # logs2server
+	 * The logs2server module will provide a decorator to the ExceptionHandler service. You will be able to send
+	 * to your server any client-side exception (throw Error("message")), and this exception will be sent to your
+	 * server, with some complementary informations (navigator object, $location informations, ...)
+	 */
 	angular.module('logs2server', ['ng'])
 		.config(exceptionConfig)
-		.provider('log2serverConfigService', log2serverConfigServiceFunction);
+		.provider('log2serverConfigService', log2serverConfigServiceProvider);
 
 	exceptionConfig.$inject = ['$provide'];
 	function exceptionConfig($provide) {
@@ -12,7 +23,14 @@
 
 	extendExceptionHandler.$inject = ['$delegate', 'log2serverConfigService', '$injector'];
 	function extendExceptionHandler($delegate, log2serverConfigService, $injector) {
-
+		/**
+		 * @ngdoc function
+		 * @name generateNavigatorData
+		 * @module logs2server
+		 * @kind function
+		 *
+		 * @returns {object} Object containing some Navigator property
+		 */
 		function generateNavigatorData(){
 			var $window = $injector.get('$window');
 			return {
@@ -34,6 +52,14 @@
 			};
 		}
 
+		/**
+		 * @ngdoc function
+		 * @name generateLocationData
+		 * @module logs2server
+		 * @kind function
+		 *
+		 * @returns {object} Object containing ^the result of some $location methods
+		 */
 		function generateLocationData(){
 			var $location = $injector.get('$location');
 			return {
@@ -64,15 +90,35 @@
 		};
 	}
 
-	log2serverConfigServiceFunction.$inject = [];
-	function log2serverConfigServiceFunction(){
+	/**
+	 * @ngdoc provider
+	 * @name $log2serverConfigServiceProvider
+	 * @description
+	 * The provider is used to configure the exceptionHandler decorator provided by the logs2server module.
+	 *
+	 * This provider allows the configuration of the log2server module with :
+	 * {@link logs2server.$log2serverConfigServiceProvider#setServerURL setServerURL} method.
+	 * {@link logs2server.$log2serverConfigServiceProvider#setDefaultExceptionHandler setDefaultExceptionHandler} method.
+	 */
+	log2serverConfigServiceProvider.$inject = [];
+	function log2serverConfigServiceProvider(){
 		var serverURL;
 		var defaultExceptionHandler = true;
 
+		/**
+	   * @ngdoc method
+	   * @name $log2serverConfigServiceProvider#setServerURL
+	   * @param {string} url URL of the REST API receiving the logs, via a POST request.
+	   */
 		this.setServerURL = function(url){
 			serverURL = url;
 		};
 
+		/**
+	   * @ngdoc method
+	   * @name $log2serverConfigServiceProvider#setDefaultExceptionHandler
+	   * @param {boolean} flag Indicate if the default exceptionHandler behavior should be enabled.
+	   */
 		this.setDefaultExceptionHandler = function(flag){
 			defaultExceptionHandler = flag;
 		};
