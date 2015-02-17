@@ -1,0 +1,4 @@
+globals:
+    angular: true
+plugins:
+  - angular
