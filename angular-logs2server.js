@@ -58,16 +58,23 @@
 				};
 				$injector.get('$http').post(serverURL, data);
 			}
-			$delegate(exception, cause);
+			if(log2serverConfigService.getDefaultExceptionHandler()){
+				$delegate(exception, cause);
+			}
 		};
 	}
 
 	log2serverConfigServiceFunction.$inject = [];
 	function log2serverConfigServiceFunction(){
 		var serverURL;
+		var defaultExceptionHandler = true;
 
 		this.setServerURL = function(url){
 			serverURL = url;
+		};
+
+		this.setDefaultExceptionHandler = function(flag){
+			defaultExceptionHandler = flag;
 		};
 		this.$get = [function(){
 			return {
