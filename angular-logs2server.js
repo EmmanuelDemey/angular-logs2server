@@ -126,6 +126,9 @@
 			return {
 				getUrl: function(){
 					return serverURL;
+				},
+				getDefaultExceptionHandler: function(){
+					return defaultExceptionHandler;
 				}
 			};
 		}];
