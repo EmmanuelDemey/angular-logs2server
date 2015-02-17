@@ -53,3 +53,26 @@ The log2server AngularJS module will send to your server, via a POST request, a 
 
 }
 ```
+
+## How to configure logs2server
+
+The logs2server module define a new Provider (log2serverConfigService) you can use in the config phase for your application, in order to configure this module. 
+
+You can configure two things : 
+- The URL of your REST API (the setServerURL method)
+- A flag to enable/disabled the default behiavor of the exceptionHandler service (the setDefaultExceptionHandler method)
+
+```
+(function(){
+	'use strict';
+
+	angular.module('test7').config(RouterConfig);
+
+	RouterConfig.$inject = ['log2serverConfigServiceProvider'];
+	function RouterConfig(log2serverConfigServiceProvider) {
+		log2serverConfigServiceProvider.setServerURL("/try");
+		log2serverConfigServiceProvider.setDefaultExceptionHandler(false);
+	}
+})();
+
+```
