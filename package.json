@@ -2,7 +2,7 @@
   "name": "angular-logs2server",
   "version": "0.0.1",
   "description": "",
-  "main": "index.js",
+  "main": "angular-logs2server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,12 +10,18 @@
     "type": "git",
     "url": "https://github.com/Gillespie59/angular-logs2server.git"
   },
-  "author": "emmanueldemey <demey.emmanuel@gmail.com>",
-  "license": "ISC",
+  "author": "Emmanuel DEMEY <demey.emmanuel@gmail.com>",
+  "license": "MIT",
+  "keywords": [
+    "angular",
+    "browser",
+    "client-side"
+  ],
   "bugs": {
     "url": "https://github.com/Gillespie59/angular-logs2server/issues"
   },
   "homepage": "https://github.com/Gillespie59/angular-logs2server",
+  
   "devDependencies": {
     "eslint": "^0.14.1",
     "eslint-plugin-angular": "0.0.3",
