@@ -6,13 +6,13 @@ This new angular module will give the possibility to send to your server all cli
 
 First, you have to import the main JS file in your HTML
 
-```
+```javascript
 <script type="text/javascript" src="angular-log2server.js"></script>
 ```
 
 Then, you need to import the new AngularJS module in your AngularJS application :
 
-```
+```javascript
 angular.module('myapp', ['logs2server']);
 ```
 
@@ -20,7 +20,7 @@ angular.module('myapp', ['logs2server']);
 
 The log2server AngularJS module will send to your server, via a POST request, a JSON object : 
 
-```
+```javascript
 {
 	exception: the original exception (string),
 	cause: the cause of the original exception (string),
@@ -62,7 +62,7 @@ You can configure two things :
 - The URL of your REST API (the setServerURL method)
 - A flag to enable/disabled the default behiavor of the exceptionHandler service (the setDefaultExceptionHandler method)
 
-```
+```javascript
 (function(){
 	'use strict';
 
