@@ -1,0 +1,8 @@
+{
+  "name": "angular-logs2server",
+  "version": "0.0.1",
+  "main": "./angular-logs2server.js",
+  "ignore": [],
+  "dependencies": {
+  }
+}
